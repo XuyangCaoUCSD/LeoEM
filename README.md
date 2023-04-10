@@ -1,4 +1,4 @@
-# LeoEM: a Real-Time Low-Earth-Orbit Satellite Network Emulator 🛰️
+# LeoEM: a Real-Time LEO Satellite Network Emulator 🛰️
 
 ### from *SaTCP: Link-Layer Informed TCP Adaptation for Highly Dynamic LEO Satellite Networks*, IEEE INFOCOM 2023
 
