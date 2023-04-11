@@ -64,5 +64,21 @@ $$L = \sqrt{(H + d_2)^2 + (d_1)^2}$$
 
 From the ground perspective, smaller maximum elevation angle, greater circular coverage yet easier line-of-sight blockage will be. 
 
+How we compute the routes? 
+
+We follow the Starlink's official description, [that handoff is considered on a 15-second interval](https://www.globalsecurity.org/space/systems/starlink.htm). Indeed, instead of constantly switching, a reasonable pace reduces the network dynamics.
+
+Therefore, we use the following procedure:
+* $counter \gets 0$
+* For every moment:
+  * If there is no connectivity between two endpoints:
+    * Re-seek ingress satellite(s) on two ends. Use the ones that can form the shortest path.
+    * $counter \gets 0$
+  * Else:
+    * If $counter = 15$:
+      * Re-seek ingress satellite(s) on two ends. Use the ones that can form the shortest path.
+      * $counter \gets 0$
+    * $counter \gets counter + 1$
+
 
 
