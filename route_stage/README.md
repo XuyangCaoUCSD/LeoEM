@@ -38,7 +38,9 @@ route_stage % python3 precompute_path_15s_bp.py Starlink Starlink_SD_SEA_15_BP_p
 
 Explanation of mathematical function `getCoverageLimitL` in `utility.py`:
 
+<p align="center">
 <img src="https://github.com/XuyangCaoUCSD/LeoEM/blob/main/route_stage/cover.jpg" width=50% height=50%>
+</p>
 
 * $\beta: \text{depression angle}$
 * $\alpha: \text{(maximum) elevation angle}$
@@ -56,8 +58,9 @@ $$d_2 = \frac{d_1}{\tan(\theta)}$$
 
 $$L = \sqrt{(H + d_2)^2 + (d_1)^2}$$
 
-
+<p align="center">
 <img src="https://github.com/XuyangCaoUCSD/LeoEM/blob/main/route_stage/elevation.jpg" width=50% height=50%>
+</p>
 
 From the ground perspective, smaller maximum elevation angle, greater circular coverage yet easier line-of-sight blockage will be. 
 
