@@ -14,7 +14,10 @@ Please specify the following key parameters in `parameter.xlsx`, following the s
 
 Visualization of Starlink Shell 1 constellation:
 
-![Image: starlink_visualization.jpg](https://github.com/XuyangCaoUCSD/LeoEM/blob/main/constellation_params/starlink_visualization.jpg)
+
+<img src="https://github.com/XuyangCaoUCSD/LeoEM/blob/main/constellation_params/starlink_visualization.jpg" width=50% height=50%>
+
+<!-- ![Image: starlink_visualization.jpg](https://github.com/XuyangCaoUCSD/LeoEM/blob/main/constellation_params/starlink_visualization.jpg) -->
 
 Then we can move to the stage 1: `StarPerf_MATLAB_stage/`.
 
