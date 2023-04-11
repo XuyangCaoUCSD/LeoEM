@@ -47,9 +47,13 @@ Explanation of mathematical function `getCoverageLimitL` in `utility.py`:
 * Objective: to derive $L$, the maximum distance within which this satellite shall communicate.
 
 $$\gamma = \frac{\pi}{2} - (\alpha + \beta)$$
+
 $$\theta = \frac{\pi - \gamma}{2}$$
+
 $$d_1 = R * \sin(\gamma)$$
+
 $$d_2 = \frac{d_1}{\tan(\theta)}$$
+
 $$L = \sqrt{(H + d_2)^2 + (d_1)^2}$$
 
 
