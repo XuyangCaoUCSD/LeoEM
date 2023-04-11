@@ -38,10 +38,24 @@ route_stage % python3 precompute_path_15s_bp.py Starlink Starlink_SD_SEA_15_BP_p
 
 Explanation of mathematical function `getCoverageLimitL` in `utility.py`:
 
-![Image: cover.jpg](https://github.com/XuyangCaoUCSD/LeoEM/blob/main/route_stage/cover.jpg)
+<img src="https://github.com/XuyangCaoUCSD/LeoEM/blob/main/route_stage/cover.jpg" width=50% height=50%>
+
+* $\beta: \text{depression angle}$
+* $\alpha: \text{(maximum) elevation angle}$
+* $H: \text{satellite altitude}$
+* $R: \text{Earth's radius}$
+* Objective: to derive $L$, the maximum distance within which this satellite shall communicate.
+
+$$\gamma = \frac{\pi}{2} - (\alpha + \beta)$$
+$$\theta = \frac{\pi - \gamma}{2}$$
+$$d_1 = R * \sin(\gamma)$$
+$$d_2 = \frac{d_1}{\tan(\theta)}$$
+$$L = \sqrt{(H + d_2)^2 + (d_1)^2}$$
 
 
-![Image: elevation.jpg](https://github.com/XuyangCaoUCSD/LeoEM/blob/main/route_stage/elevation.jpg)
+<img src="https://github.com/XuyangCaoUCSD/LeoEM/blob/main/route_stage/elevation.jpg" width=50% height=50%>
+
+From the ground perspective, smaller maximum elevation angle, greater circular coverage yet easier line-of-sight blockage will be. 
 
 
 
