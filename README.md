@@ -55,11 +55,18 @@ If you use LeoEM or SaTCP, please cite with the following BibTeX entry.
 }
 ```
 
-<p float="left">
-    <img src="https://github.com/XuyangCaoUCSD/LeoEM/blob/main/ofcourse.jpeg" alt="of course" style="width:32%">
-    <img src="https://github.com/XuyangCaoUCSD/LeoEM/blob/main/Shannon.jpeg" alt="Shannon" style="width:32%">
-    <img src="https://github.com/XuyangCaoUCSD/LeoEM/blob/main/Prinicipia.png" alt="Prinicipia" style="width:32%">
+## Thank You for Writing READMEs of the Nature
+
+<p align="center">
+<img src="https://github.com/XuyangCaoUCSD/LeoEM/blob/main/ofcourse.jpeg" alt="of course" style="width:50%">
 </p>
+<p align="center">
+<img src="https://github.com/XuyangCaoUCSD/LeoEM/blob/main/Shannon.jpeg" alt="Shannon" style="width:50%">
+</p>
+<p align="center">
+<img src="https://github.com/XuyangCaoUCSD/LeoEM/blob/main/Prinicipia.png" alt="Prinicipia" style="width:32%">
+</p>
+
 
 
 
