@@ -54,17 +54,15 @@ If you use LeoEM or SaTCP, please cite with the following BibTeX entry.
   booktitle={IEEE INFOCOM 2023 - IEEE Conference on Computer Communications},
 }
 ```
-
-## Thank You for Writing the README of Nature
-
-<div class="row" clear="both" display="table">
-  <div class="column" float="left">
+<link rel="stylesheet" href="https://github.com/XuyangCaoUCSD/LeoEM/blob/main/some_style.css">
+<div class="row">
+  <div class="column">
     <img src="https://github.com/XuyangCaoUCSD/LeoEM/blob/main/ofcourse.jpeg" alt="of course" style="width:32%">
   </div>
-  <div class="column" float="left">
+  <div class="column">
     <img src="https://github.com/XuyangCaoUCSD/LeoEM/blob/main/Shannon.jpeg" alt="Shannon" style="width:32%">
   </div>
-  <div class="column" float="left">
+  <div class="column">
     <img src="https://github.com/XuyangCaoUCSD/LeoEM/blob/main/Prinicipia.png" alt="Prinicipia" style="width:32%">
   </div>
 </div>
