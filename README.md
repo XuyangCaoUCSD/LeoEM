@@ -42,12 +42,12 @@ Please check each folder to start LeoEM, following the above workflow. Don't hes
 
 ## SaTCP
 
-Another main contribution of the paper is SaTCP, a link-layer informed TCP adaptation that inhibits the congestion control when a handover is approaching. We also open-source our SaTCP implementation and the calculation of handover prediction error (i.e., report timing error in the paper). For details and the integration with LeoEM, please see `satcp/`. 
+Another main contribution of the paper is SaTCP, a link-layer informed TCP adaptation that inhibits the congestion control when a handover is approaching. We also open-source our SaTCP implementation and the calculation of handover prediction error (i.e., report timing error in the paper). For details and the integration with LeoEM, please see `emulation_stage/satcp/`. To understand its principle, please see the paper.
 
 ## Citing LeoEM or SaTCP
 If you use LeoEM or SaTCP, please cite with the following BibTeX entry.
 ```bibtex
-@inproceedings{caozhang2023satcp,
+@inproceedings{infocom2023satcp,
   title={SaTCP: Link-Layer Informed TCP Adaptation for Highly Dynamic LEO Satellite Networks,
   author={Cao, Xuyang and Zhang, Xinyu},
   year={2023},

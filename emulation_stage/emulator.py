@@ -217,7 +217,7 @@ def update_precomputed_link(link_info_all_cycles, net):
     global current_routing_path, last_routing_path, last_node_delay, current_node_delay
 
     # precompute the amount of delay for each prediction
-    data_path = '../../sat_location_prediction/snapshot_compare/comparsion_1_2/latency_deltas.mat'
+    data_path = 'satcp/report_timing_error/comparsion_1_2/latency_deltas.mat'
     data = scio.loadmat(data_path)
     latency_deltas = data['latency_deltas']
     latency_deltas = latency_deltas[0]
