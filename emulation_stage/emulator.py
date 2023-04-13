@@ -400,7 +400,7 @@ def read_link_info(input_file_name):
     global intermediate_hop_num
 
     link_info_all_cycles = []
-    in_file = open(input_file_name, "r")
+    in_file = open("../precomputed_paths/" + input_file_name, "r")
     for line in in_file:
         values = line.split("$")
         if len(values) < 5:
