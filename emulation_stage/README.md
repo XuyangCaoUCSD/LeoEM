@@ -30,7 +30,7 @@ $ python3 emulator.py Starlink_SD_NY_15_BP_path.log
 You will see the following interface:
 
 <p align="center">
-<img src="https://github.com/XuyangCaoUCSD/LeoEM/blob/main/emulation_stage/setup.png" width=50% height=50%>
+<img src="https://github.com/XuyangCaoUCSD/LeoEM/blob/main/emulation_stage/setup.png">
 </p>
 
 This is a "pre-emulation" phase. Before the emulation starts and the network becomes dynamic, here we give you the chance to start all the testing/logging programs in advance. For example, run `xterm h1 h2` will bring up the terminals for the two UEs. Start your programs there (which share the same file namespace as the emulator host).
@@ -38,7 +38,7 @@ This is a "pre-emulation" phase. Before the emulation starts and the network bec
 Then run `exit` in the main interface. The emulation will start. You will see something like the following:
 
 <p align="center">
-<img src="https://github.com/XuyangCaoUCSD/LeoEM/blob/main/emulation_stage/run.png" width=50% height=50%>
+<img src="https://github.com/XuyangCaoUCSD/LeoEM/blob/main/emulation_stage/run.png">
 </p>
 
 Assume your loggers will save data along the way. The emulation process lasts for one orbital period, which is embodied as the number of data points in the precomputed routes.  
