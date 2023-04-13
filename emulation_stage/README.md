@@ -10,6 +10,8 @@ Finally, your host will experience the dynamic LEO satellite networks as per you
     * Please do a full installation as per the instruction in `INSTALL`. E.g., the POX utility should also be installed for you. After that, put `learning_switch.py` in `~/pox/pox/misc`. This specifies the functionalities of the switching nodes (e.g., satellites and ground stations). You could customize it. 
 * Please install Mininet and use the emulator on a physical, rather than virtual, machine. Besides performance reason, the emulator process shall have accurate time elapse. Can you guarantee that on a virtual machine? [Why?](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/techpaper/Timekeeping-In-VirtualMachines.pdf)
 
+### Use
+
 Great! Let's run the emulator.
 
 First, run this so network components in the emulator will be instructed to behave as learning switches (append `&` to run in the background):
@@ -45,4 +47,8 @@ Assume your loggers will save data along the way. The emulation process lasts fo
 
 Enjoy using! Let us know any questions or your feedback!
 
+### Principle
 
+How the handovers are determined?
+
+Coming soon...

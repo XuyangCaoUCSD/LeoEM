@@ -14,13 +14,13 @@ We can see LeoEM is divided into three stages.
 
 ![Image: workflow.png](https://github.com/XuyangCaoUCSD/LeoEM/blob/main/workflow.png)
 
-The details (e.g., prerequisites, setups, execution, and principles) of each component can be found in the README of its corresponding subdirectory.
+**The details (e.g., prerequisites, setups, execution, and principles) of each component can be found in the README of its corresponding subdirectory.**
 
 ### Stage 1: LEO Constellation Construction
 
 Given our ultimate goal is to emulate the network, we will first derive the time-varying spatial data of all the network components in the constellation. I.e., satellites. In this way, we can calculate the connectivity among nodes, latency of a link, and candidate routes at a certain moment.
 
-Essentially, you specify the key parameters of a LEO constellation in `constellation_params/`, which will then be fed into some orbit propogation software. The software will calculate the dynamic 3D location of the celestial object using reasonable orbit models, at a certain frame rate, across one orbit period. In our case, those of all the satellites in the constellation will be computed and saved. For this purpose, we adopt StarPerf's solution and implementation. Big thanks to StarPerf and their detailed explainations to our questions. Please see `StarPerf_MATLAB_stage/` for details.
+Essentially, you specify the key parameters of a LEO constellation in `constellation_params/`, which will then be fed into some orbit propogation software. The software will calculate the dynamic 3D location of the celestial object using reasonable orbit models, at a certain frame rate, across one orbit period. In our case, those of all the satellites in the constellation will be computed and saved. For this purpose, we adopt [StarPerf](https://github.com/SpaceNetLab/StarPerf_Simulator)'s solution and implementation. Big thanks to StarPerf and their detailed explainations to our questions. Please see `StarPerf_MATLAB_stage/` for details.
 
 The spatial data output will reside in `constellation_output/`. 
 
@@ -28,7 +28,7 @@ Some LEO systems' data are available at StarPerf and you could directly use them
 
 ### Stage 2: Dynamic Route Computation
 
-Knowing how nodes move over time from stage 1, you specify the source and destination. You also choose inter-satellite lasers or bent-pipe radios as the links. To use bent-pipe, ground station locations (`ground_stations.xlsx`) will be needed for relaying purpose. We adopt shortest-path/Dijkstra's algorithm for route computation with the propogation latency as the weight. We adopt yet considerably modify StarPerf's route computation components. Big thanks to StarPerf again. Please see `route_stage/` for details.
+Knowing how nodes move over time from stage 1, you specify the source and destination. You also choose inter-satellite lasers or bent-pipe radios as the links. To use bent-pipe, ground station locations (`ground_stations.xlsx`) will be needed for relaying purpose. We adopt shortest-path/Dijkstra's algorithm for route computation with the propogation latency as the weight. We adopt yet considerably modify [StarPerf](https://github.com/SpaceNetLab/StarPerf_Simulator)'s route computation framework. Big thanks to StarPerf again. Please see `route_stage/` for details.
 
 Stage 2 hence outputs the precomputed end-to-end dynamic routes across one oribtal period, after which they just repeat. They reside in `precomputed_paths/`.
 
