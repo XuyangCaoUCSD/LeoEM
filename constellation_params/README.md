@@ -1,6 +1,6 @@
 ## LEO Constellation Parameter Specification
 
-(Adopting StarPerf's Framework)
+(Adopting [StarPerf](https://github.com/SpaceNetLab/StarPerf_Simulator)'s Framework)
 
 Please specify the following key parameters in `parameter.xlsx`, following the self-explanatory format:
 
