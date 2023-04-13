@@ -55,13 +55,13 @@ If you use LeoEM or SaTCP, please cite with the following BibTeX entry.
 }
 ```
 
-## Thank You for Writing READMEs of the Nature
+## Thank You for Writing READMEs of the Nature and Engineering on Them
 
 <p align="center">
 <img src="https://github.com/XuyangCaoUCSD/LeoEM/blob/main/ofcourse.jpeg" alt="of course" style="width:50%">
 </p>
 <p align='center'>
-<a href="https://en.wikipedia.org/wiki/Autonomous_spaceport_drone_ship">OCISLY autonomous spaceport droneship by SpaceX</a>
+<a href="https://en.wikipedia.org/wiki/Autonomous_spaceport_drone_ship">OCISLY Autonomous Spaceport Droneship by SpaceX</a>
 </p>
 <p align="center">
 <img src="https://github.com/XuyangCaoUCSD/LeoEM/blob/main/Shannon.jpeg" alt="Shannon" style="width:50%">
