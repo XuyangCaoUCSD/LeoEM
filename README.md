@@ -14,7 +14,12 @@ We can see LeoEM is divided into three stages.
 
 ![Image: workflow.png](https://github.com/XuyangCaoUCSD/LeoEM/blob/main/workflow.png)
 
+---
+**NOTE**
+
 **The details (e.g., prerequisites, setups, execution, and principles) of each component can be found in the README of its corresponding subdirectory.**
+
+---
 
 ### Stage 1: LEO Constellation Construction
 
