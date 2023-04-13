@@ -60,12 +60,22 @@ If you use LeoEM or SaTCP, please cite with the following BibTeX entry.
 <p align="center">
 <img src="https://github.com/XuyangCaoUCSD/LeoEM/blob/main/ofcourse.jpeg" alt="of course" style="width:50%">
 </p>
+<p align='center'>
+<a href="https://en.wikipedia.org/wiki/Autonomous_spaceport_drone_ship">OCISLY autonomous spaceport droneship by SpaceX</a>
+</p>
 <p align="center">
 <img src="https://github.com/XuyangCaoUCSD/LeoEM/blob/main/Shannon.jpeg" alt="Shannon" style="width:50%">
+</p>
+<p align='center'>
+<a href="https://en.wikipedia.org/wiki/Claude_Shannon">Claude Shannon</a>
 </p>
 <p align="center">
 <img src="https://github.com/XuyangCaoUCSD/LeoEM/blob/main/Prinicipia.png" alt="Prinicipia" style="width:32%">
 </p>
+<p align='center'>
+<a href="https://en.wikipedia.org/wiki/Philosophi%C3%A6_Naturalis_Principia_Mathematica">Philosophiæ Naturalis Principia Mathematica</a>
+</p>
+<p align="center">
 
 
 
