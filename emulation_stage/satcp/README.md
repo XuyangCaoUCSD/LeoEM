@@ -20,7 +20,7 @@ You can configure $D$ in `report_relay.c`. Simply modify the value of `SATCP_DUR
 
 ### To Use SaTCP:
 
-1. Have the Linux kernel source codes. Replace `source/net/ipv4/tcp_cubic.c` with the one we provided. Compile and use the kernel.  
+1. Have the Linux kernel source codes. Replace `source/net/ipv4/tcp_cubic.c` with the one we provided. Compile and use the kernel. Or you can try to apply the patch we provided `git apply satcp.patch` (may not be compatible).
 2. Make sure you select CUBIC as the TCP congestion control algorithm. In Ubuntu:
 ```Bash
 $ sudo sysctl net.ipv4.tcp_congestion_control=cubic

@@ -1,0 +1,122 @@
+diff --git a/net/ipv4/tcp_cubic.c b/net/ipv4/tcp_cubic.c
+index fffa011a007d..0acb98749f19 100644
+--- a/net/ipv4/tcp_cubic.c
++++ b/net/ipv4/tcp_cubic.c
+@@ -29,11 +29,24 @@
+ #include <linux/math64.h>
+ #include <net/tcp.h>
+ 
++#include <linux/fs.h>
++#include <asm/segment.h>
++#include <asm/uaccess.h>
++#include <linux/buffer_head.h>
++#include <linux/kthread.h>
++#include <linux/irqflags.h>
++#include <linux/kernel.h>
++#include <linux/netlink.h>
++#include <net/netlink.h>
++#include <net/net_namespace.h>
++
+ #define BICTCP_BETA_SCALE    1024	/* Scale factor beta calculation
+ 					 * max_cwnd = snd_cwnd * beta
+ 					 */
+ #define	BICTCP_HZ		10	/* BIC HZ 2^10 = 1024 */
+ 
++#define NETLINK_TESTFAMILY 31
++
+ /* Two methods of hybrid slow start */
+ #define HYSTART_ACK_TRAIN	0x1
+ #define HYSTART_DELAY		0x2
+@@ -80,6 +93,41 @@ MODULE_PARM_DESC(hystart_low_window, "lower bound cwnd for hybrid slow start");
+ module_param(hystart_ack_delta_us, int, 0644);
+ MODULE_PARM_DESC(hystart_ack_delta_us, "spacing between ack's indicating train (usecs)");
+ 
++struct sock *socket;
++
++bool handover_status = false;
++
++static void nl_receive_handover_status(struct sk_buff *skb) {
++  struct nlmsghdr *nlh = (struct nlmsghdr *) skb->data;
++  char *singal = (char*) nlmsg_data(nlh);
++  if (singal[0] == '1') {
++    handover_status = true;
++	printk("handover status changed to 1\n");
++  } else {
++    handover_status = false;
++	printk("handover status changed to 0\n");
++  }
++}
++
++static int socket_init(void) {
++  struct netlink_kernel_cfg config = {
++    .input = nl_receive_handover_status,
++  };
++
++  socket = netlink_kernel_create(&init_net, NETLINK_TESTFAMILY, &config);
++  if (socket == NULL) {
++    return -1;
++  }
++
++  return 0;
++}
++
++static void socket_exit(void) {
++  if (socket) {
++    netlink_kernel_release(socket);
++  }
++}
++
+ /* BIC TCP Parameters */
+ struct bictcp {
+ 	u32	cnt;		/* increase cwnd by 1 after ACKs */
+@@ -251,8 +299,15 @@ static inline void bictcp_update(struct bictcp *ca, u32 cwnd, u32 acked)
+ 			/* Compute new K based on
+ 			 * (wmax-cwnd) * (srtt>>3 / HZ) / c * 2^(3*bictcp_HZ)
+ 			 */
+-			ca->bic_K = cubic_root(cube_factor
+-					       * (ca->last_max_cwnd - cwnd));
++			// shrink the recovery time
++			if (handover_status) {
++				// handover is happening, so drastically reduce the recovery time K to last max point
++				ca->bic_K = cubic_root(cube_factor * (ca->last_max_cwnd - cwnd)) - (cubic_root(cube_factor * (ca->last_max_cwnd - cwnd)) * 8 / 9);
++				printk("SATCP triggered in bictcp_update!\n");
++			} else {
++				ca->bic_K = cubic_root(cube_factor * (ca->last_max_cwnd - cwnd));
++			}
++			
+ 			ca->bic_origin_point = ca->last_max_cwnd;
+ 		}
+ 	}
+@@ -364,9 +419,14 @@ static u32 bictcp_recalc_ssthresh(struct sock *sk)
+ 
+ static void bictcp_state(struct sock *sk, u8 new_state)
+ {
++	// ignore packet loss
+ 	if (new_state == TCP_CA_Loss) {
+-		bictcp_reset(inet_csk_ca(sk));
+-		bictcp_hystart_reset(sk);
++		if (!handover_status) {
++			bictcp_reset(inet_csk_ca(sk));
++			bictcp_hystart_reset(sk);
++		} else {
++			printk("SATCP triggered in bictcp_state!\n");
++		}
+ 	}
+ }
+ 
+@@ -494,6 +554,7 @@ static struct tcp_congestion_ops cubictcp __read_mostly = {
+ 
+ static int __init cubictcp_register(void)
+ {
++	socket_init();
+ 	BUILD_BUG_ON(sizeof(struct bictcp) > ICSK_CA_PRIV_SIZE);
+ 
+ 	/* Precompute a bunch of the scaling factors that are used per-packet
+@@ -530,6 +591,7 @@ static int __init cubictcp_register(void)
+ static void __exit cubictcp_unregister(void)
+ {
+ 	tcp_unregister_congestion_control(&cubictcp);
++	socket_exit();
+ }
+ 
+ module_init(cubictcp_register);
